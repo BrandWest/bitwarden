@@ -7,7 +7,6 @@ metadata:
     type: nfs
     app: bitwarden
 spec:
-  storageClassName: bitwarden-storage
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
