@@ -26,7 +26,7 @@ spec:
         runAsGroup: 3000
       containers:
       - name: bitwarden-pod
-        image: vaultwarden/server@sha256:fa5a37f290bc735dfbfe56be09f4ec5f47eb4f5cfbe3b4cb62753af6bee945bd
+        image: vaultwarden/server:sha256-3afff94efefc5a4bb89af2fb86f3ac27dff197089e8749ef3c903ed781debd78
         imagePullPolicy: IfNotPresent
         env: 
         - name: SMTP_HOST
