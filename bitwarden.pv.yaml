@@ -6,7 +6,6 @@ metadata:
     type: nfs
     app: bitwarden
 spec:
-  storageClassName: bitwarden-storage
   capacity:
     storage: 5Gi
   accessModes:
