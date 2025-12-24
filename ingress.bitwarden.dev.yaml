@@ -11,7 +11,6 @@ metadata:
     cert-manager.io/issuer: "vault-issuer"  # Using Issuer instead of ClusterIssuer
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    avp.kubernetes.io/path: "argocd/data/argocd-vault-plugin/bitwarden"
     # File upload and timeout settings for password imports
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
