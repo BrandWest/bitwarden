@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: vault-issuer
-  namespace: actual-budget
+  namespace: bitwarden
   annotations:
     avp.kubernetes.io/path: "argocd/data/argocd-vault-plugin/vault"
 spec:
