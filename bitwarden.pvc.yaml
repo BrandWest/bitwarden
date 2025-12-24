@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bitwarden-storage-pvc
+  namespace: bitwarden
+  labels:
+    type: nfs
+    app: bitwarden
+spec:
+  storageClassName: bitwarden-storage
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+
+

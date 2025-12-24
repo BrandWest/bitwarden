@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitwarden-pod
+  namespace: bitwarden
+  labels:
+    app: bitwarden
+spec:
+  selector:
+    matchLabels:
+      app: bitwarden
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: bitwarden
+    spec:
+      securityContext:
+        fsGroup: 3000
+        runAsUser: 3000
+        runAsGroup: 3000
+      containers:
+      - name: bitwarden-pod
+        image: vaultwarden/server@sha256:fa5a37f290bc735dfbfe56be09f4ec5f47eb4f5cfbe3b4cb62753af6bee945bd
+        imagePullPolicy: IfNotPresent
+        env: 
+        - name: SMTP_HOST
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_HOST>
+        - name: SMTP_PORT
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_PORT>
+        - name: SMTP_FROM
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_FROM>
+        - name: SMTP_SECURITY
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_SECURITY>
+        - name: SMTP_USERNAME
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_USERNAME>
+        - name: SMTP_PASSWORD
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_PASSWORD>
+        - name: SIGNUPS_ALLOWED
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SIGNUPS_ALLOWED>
+        - name: INVITATIONS_ALLOWED
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#INVITATIONS_ALLOWED> 
+        - name: SSO_ENABLED
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_ENABLED> 
+        - name: SSO_SIGNUPS_MATCH_EMAIL
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_SIGNUPS_MATCH_EMAIL> 
+        - name: SSO_AUTHORITY
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_AUTHORITY>
+        - name: SSO_CLIENT_ID
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_CLIENT_ID>
+        - name: SSO_CLIENT_SECRET 
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_CLIENT_SECRET>
+        - name: DOMAIN
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#DOMAIN>
+        - name: SSO_CLIENT_CACHE_EXPIRATION
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_CLIENT_CACHE_EXPIRATION>
+        - name: PUSH_ENABLED
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_ENABLED>
+        - name: PUSH_INSTALLATION_ID
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_INSTALLATION_ID>
+        - name: PUSH_INSTALLATION_KEY
+          value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_INSTALLATION_KEY>
+        envFrom:
+        - secretRef:
+            name: admin-tokens
+        ports:
+        - containerPort: 80
+          name: vw-http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/data"
+          name: bitwarden-storage
+        resources: {}
+      volumes:
+      - name: bitwarden-storage
+        persistentVolumeClaim:
+          claimName: bitwarden-storage-pvc    
