@@ -65,11 +65,13 @@ spec:
           value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_INSTALLATION_ID>
         - name: PUSH_INSTALLATION_KEY
           value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_INSTALLATION_KEY>
+        - name: ROCKET_PORT
+          value: "8080"
         envFrom:
         - secretRef:
             name: admin-tokens
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: vw-http
           protocol: TCP
         volumeMounts:
