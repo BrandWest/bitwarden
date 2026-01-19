@@ -30,41 +30,41 @@ spec:
         imagePullPolicy: IfNotPresent
         env: 
         - name: SMTP_HOST
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_HOST>
+          value: <path:secret/data/apps/bitwarden#SMTP_HOST>
         - name: SMTP_PORT
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_PORT>
+          value: <path:secret/data/apps/bitwarden#SMTP_PORT>
         - name: SMTP_FROM
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_FROM>
+          value: <path:secret/data/apps/bitwarden#SMTP_FROM>
         - name: SMTP_SECURITY
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_SECURITY>
+          value: <path:secret/data/apps/bitwarden#SMTP_SECURITY>
         - name: SMTP_USERNAME
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_USERNAME>
+          value: <path:secret/data/apps/bitwarden#SMTP_USERNAME>
         - name: SMTP_PASSWORD
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SMTP_PASSWORD>
+          value: <path:secret/data/apps/bitwarden#SMTP_PASSWORD>
         - name: SIGNUPS_ALLOWED
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SIGNUPS_ALLOWED>
+          value: <path:secret/data/apps/bitwarden#SIGNUPS_ALLOWED>
         - name: INVITATIONS_ALLOWED
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#INVITATIONS_ALLOWED> 
+          value: <path:secret/data/apps/bitwarden#INVITATIONS_ALLOWED> 
         - name: SSO_ENABLED
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_ENABLED> 
+          value: <path:secret/data/apps/bitwarden#SSO_ENABLED> 
         - name: SSO_SIGNUPS_MATCH_EMAIL
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_SIGNUPS_MATCH_EMAIL> 
+          value: <path:secret/data/apps/bitwarden#SSO_SIGNUPS_MATCH_EMAIL> 
         - name: SSO_AUTHORITY
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_AUTHORITY>
+          value: <path:secret/data/apps/bitwarden#SSO_AUTHORITY>
         - name: SSO_CLIENT_ID
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_CLIENT_ID>
+          value: <path:secret/data/apps/bitwarden#SSO_CLIENT_ID>
         - name: SSO_CLIENT_SECRET 
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_CLIENT_SECRET>
+          value: <path:secret/data/apps/bitwarden#SSO_CLIENT_SECRET>
         - name: DOMAIN
-          value: https://<path:argocd/data/argocd-vault-plugin/bitwarden#DOMAIN>
+          value: https://<path:secret/data/apps/bitwarden#DOMAIN>
         - name: SSO_CLIENT_CACHE_EXPIRATION
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#SSO_CLIENT_CACHE_EXPIRATION>
+          value: <path:secret/data/apps/bitwarden#SSO_CLIENT_CACHE_EXPIRATION>
         - name: PUSH_ENABLED
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_ENABLED>
+          value: <path:secret/data/apps/bitwarden#PUSH_ENABLED>
         - name: PUSH_INSTALLATION_ID
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_INSTALLATION_ID>
+          value: <path:secret/data/apps/bitwarden#PUSH_INSTALLATION_ID>
         - name: PUSH_INSTALLATION_KEY
-          value: <path:argocd/data/argocd-vault-plugin/bitwarden#PUSH_INSTALLATION_KEY>
+          value: <path:secret/data/apps/bitwarden#PUSH_INSTALLATION_KEY>
         - name: ROCKET_PORT
           value: "8080"
         envFrom:
@@ -77,6 +77,7 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: bitwarden-storage
+          subPath: bitwarden
         resources: {}
       volumes:
       - name: bitwarden-storage
