@@ -97,6 +97,7 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: bitwarden-storage
+          subPath: bitwarden
         resources: {}
       volumes:
       - name: bitwarden-storage
