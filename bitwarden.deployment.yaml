@@ -67,6 +67,26 @@ spec:
           value: <path:secret/apps/bitwarden/prod#PUSH_INSTALLATION_KEY>
         - name: ROCKET_PORT
           value: "8080"
+        - name: ADMIN_TOKEN
+          value: <path:secret/apps/bitwarden/prod#ADMIN_TOKEN>
+        - name: DATABASE_MAX_CONNS
+          value: <path:secret/apps/bitwarden/prod#DATABASE_MAX_CONNS>
+        - name: PUSH_IDENTITY_URI
+          value: <path:secret/apps/bitwarden/prod#PUSH_IDENTITY_URI>
+        - name: PUSH_RELAY_URI 
+          value: <path:secret/apps/bitwarden/prod#PUSH_RELAY_URI>
+        - name: SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION
+          value: <path:secret/apps/bitwarden/prod#SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION>
+        - name: SSO_AUTH_ONLY_NOT_SESSION
+          value: <path:secret/apps/bitwarden/prod#SSO_AUTH_ONLY_NOT_SESSION>
+        - name: SSO_ENABLED
+          value: <path:secret/apps/bitwarden/prod# SSO_ENABLED>
+        - name: SSO_MASTER_PASSWORD_POLICY
+          value: <path:secret/apps/bitwarden/prod#SSO_MASTER_PASSWORD_POLICY>
+        - name: SSO_ONLY
+          value: <path:secret/apps/bitwarden/prod#SSO_ONLY>
+        - name: SSO_SCOPES
+          value: <path:secret/apps/bitwarden/prod#SSO_SCOPES>
         envFrom:
         - secretRef:
             name: admin-tokens
