@@ -30,63 +30,63 @@ spec:
         imagePullPolicy: IfNotPresent
         env: 
         - name: SMTP_HOST
-          value: <path:secret/apps/bitwarden/prod#SMTP_HOST>
+          value: <path:secret/data/apps/bitwarden/prod#SMTP_HOST>
         - name: SMTP_PORT
-          value: <path:secret/apps/bitwarden/prod#SMTP_PORT>
+          value: <path:secret/data/apps/bitwarden/prod#SMTP_PORT>
         - name: SMTP_FROM
-          value: <path:secret/apps/bitwarden/prod#SMTP_FROM>
+          value: <path:secret/data/apps/bitwarden/prod#SMTP_FROM>
         - name: SMTP_SECURITY
-          value: <path:secret/apps/bitwarden/prod#SMTP_SECURITY>
+          value: <path:secret/data/apps/bitwarden/prod#SMTP_SECURITY>
         - name: SMTP_USERNAME
-          value: <path:secret/apps/bitwarden/prod#SMTP_USERNAME>
+          value: <path:secret/data/apps/bitwarden/prod#SMTP_USERNAME>
         - name: SMTP_PASSWORD
-          value: <path:secret/apps/bitwarden/prod#SMTP_PASSWORD>
+          value: <path:secret/data/apps/bitwarden/prod#SMTP_PASSWORD>
         - name: SIGNUPS_ALLOWED
-          value: <path:secret/apps/bitwarden/prod#SIGNUPS_ALLOWED>
+          value: <path:secret/data/apps/bitwarden/prod#SIGNUPS_ALLOWED>
         - name: INVITATIONS_ALLOWED
-          value: <path:secret/apps/bitwarden/prod#INVITATIONS_ALLOWED> 
+          value: <path:secret/data/apps/bitwarden/prod#INVITATIONS_ALLOWED> 
         - name: SSO_ENABLED
-          value: <path:secret/apps/bitwarden/prod#SSO_ENABLED> 
+          value: <path:secret/data/apps/bitwarden/prod#SSO_ENABLED> 
         - name: SSO_SIGNUPS_MATCH_EMAIL
-          value: <path:secret/apps/bitwarden/prod#SSO_SIGNUPS_MATCH_EMAIL> 
+          value: <path:secret/data/apps/bitwarden/prod#SSO_SIGNUPS_MATCH_EMAIL> 
         - name: SSO_AUTHORITY
-          value: <path:secret/apps/bitwarden/prod#SSO_AUTHORITY>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_AUTHORITY>
         - name: SSO_CLIENT_ID
-          value: <path:secret/apps/bitwarden/prod#SSO_CLIENT_ID>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_CLIENT_ID>
         - name: SSO_CLIENT_SECRET 
-          value: <path:secret/apps/bitwarden/prod#SSO_CLIENT_SECRET>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_CLIENT_SECRET>
         - name: DOMAIN
-          value: https://<path:secret/apps/bitwarden/prod#DOMAIN>
+          value: https://<path:secret/data/apps/bitwarden/prod#DOMAIN>
         - name: SSO_CLIENT_CACHE_EXPIRATION
-          value: <path:secret/apps/bitwarden/prod#SSO_CLIENT_CACHE_EXPIRATION>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_CLIENT_CACHE_EXPIRATION>
         - name: PUSH_ENABLED
-          value: <path:secret/apps/bitwarden/prod#PUSH_ENABLED>
+          value: <path:secret/data/apps/bitwarden/prod#PUSH_ENABLED>
         - name: PUSH_INSTALLATION_ID
-          value: <path:secret/apps/bitwarden/prod#PUSH_INSTALLATION_ID>
+          value: <path:secret/data/apps/bitwarden/prod#PUSH_INSTALLATION_ID>
         - name: PUSH_INSTALLATION_KEY
-          value: <path:secret/apps/bitwarden/prod#PUSH_INSTALLATION_KEY>
+          value: <path:secret/data/apps/bitwarden/prod#PUSH_INSTALLATION_KEY>
         - name: ROCKET_PORT
           value: "8080"
         - name: ADMIN_TOKEN
-          value: <path:secret/apps/bitwarden/prod#ADMIN_TOKEN>
+          value: <path:secret/data/apps/bitwarden/prod#ADMIN_TOKEN>
         - name: DATABASE_MAX_CONNS
-          value: <path:secret/apps/bitwarden/prod#DATABASE_MAX_CONNS>
+          value: <path:secret/data/apps/bitwarden/prod#DATABASE_MAX_CONNS>
         - name: PUSH_IDENTITY_URI
-          value: <path:secret/apps/bitwarden/prod#PUSH_IDENTITY_URI>
+          value: <path:secret/data/apps/bitwarden/prod#PUSH_IDENTITY_URI>
         - name: PUSH_RELAY_URI 
-          value: <path:secret/apps/bitwarden/prod#PUSH_RELAY_URI>
+          value: <path:secret/data/apps/bitwarden/prod#PUSH_RELAY_URI>
         - name: SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION
-          value: <path:secret/apps/bitwarden/prod#SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION>
         - name: SSO_AUTH_ONLY_NOT_SESSION
-          value: <path:secret/apps/bitwarden/prod#SSO_AUTH_ONLY_NOT_SESSION>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_AUTH_ONLY_NOT_SESSION>
         - name: SSO_ENABLED
-          value: <path:secret/apps/bitwarden/prod# SSO_ENABLED>
+          value: <path:secret/data/apps/bitwarden/prod# SSO_ENABLED>
         - name: SSO_MASTER_PASSWORD_POLICY
-          value: <path:secret/apps/bitwarden/prod#SSO_MASTER_PASSWORD_POLICY>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_MASTER_PASSWORD_POLICY>
         - name: SSO_ONLY
-          value: <path:secret/apps/bitwarden/prod#SSO_ONLY>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_ONLY>
         - name: SSO_SCOPES
-          value: <path:secret/apps/bitwarden/prod#SSO_SCOPES>
+          value: <path:secret/data/apps/bitwarden/prod#SSO_SCOPES>
         envFrom:
         - secretRef:
             name: admin-tokens
