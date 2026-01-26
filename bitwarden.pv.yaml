@@ -14,4 +14,4 @@ spec:
     - nfsvers=4.2
   nfs:
     server: 10.0.0.200
-    path: "/mnt/MainPool/k8s-storage"
+    path: "/mnt/MainPool/k8s-storage/bitwarden"
