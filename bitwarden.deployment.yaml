@@ -83,7 +83,8 @@ spec:
         - name: SSO_ENABLED
           value: <path:secret/data/apps/bitwarden/prod# SSO_ENABLED>
         - name: SSO_MASTER_PASSWORD_POLICY
-          value: <path:secret/data/apps/bitwarden/prod#SSO_MASTER_PASSWORD_POLICY>
+          value: >-
+            {"enforceOnLogin":false,"minComplexity":3,"minLength":12,"requireLower":false,"requireNumbers":false,"requireSpecial":false,"requireUpper":false}
         - name: SSO_ONLY
           value: <path:secret/data/apps/bitwarden/prod#SSO_ONLY>
         - name: SSO_SCOPES
