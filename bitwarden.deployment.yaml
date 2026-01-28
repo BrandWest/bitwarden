@@ -22,12 +22,13 @@ spec:
     spec:
       securityContext:
         fsGroup: 3000
-        runAsUser: 3000
-        runAsGroup: 3000
       containers:
       - name: bitwarden-pod
         image: vaultwarden/server:latest
         imagePullPolicy: IfNotPresent
+        securityContext:
+          runAsUser: 3000
+          runAsGroup: 3000
         env: 
         - name: SMTP_HOST
           value: <path:secret/data/apps/bitwarden/prod#SMTP_HOST>
@@ -80,7 +81,8 @@ spec:
         - name: SSO_AUTH_ONLY_NOT_SESSION
           value: <path:secret/data/apps/bitwarden/prod#SSO_AUTH_ONLY_NOT_SESSION>
         - name: SSO_MASTER_PASSWORD_POLICY
-          value: <path:secret/data/apps/bitwarden/prod#SSO_MASTER_PASSWORD_POLICY>
+          value: >-
+            {"enforceOnLogin":false,"minComplexity":3,"minLength":12,"requireLower":false,"requireNumbers":false,"requireSpecial":false,"requireUpper":false}
         - name: SSO_ONLY
           value: <path:secret/data/apps/bitwarden/prod#SSO_ONLY>
         - name: SSO_SCOPES
