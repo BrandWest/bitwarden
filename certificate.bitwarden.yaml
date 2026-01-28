@@ -1,9 +1,9 @@
-#Wildcard
+# Wildcard certificate for *.diagon.ally (legacy domain)
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: diagon-ally-tls
-  namespace: bitwarden
+  name: wildcard-cert-diagon
+  namespace: external-resources
 spec:
   secretName: diagon-ally-tls
   duration: 2160h # 90 days
@@ -15,3 +15,21 @@ spec:
   dnsNames:
   - "*.diagon.ally"
   - "diagon.ally"
+---
+# Wildcard certificate for *.styx.myth (new domain)
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-cert-styx
+  namespace: external-resources
+spec:
+  secretName: styx-myth-tls
+  duration: 2160h # 90 days
+  renewBefore: 360h # 15 days
+  issuerRef:
+    name: vault-issuer
+    kind: Issuer
+  commonName: <path:secret/data/infra/network/prod#wildcard_domain_styx>
+  dnsNames:
+  - "*.styx.myth"
+  - "styx.myth"

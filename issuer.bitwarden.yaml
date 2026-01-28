@@ -7,11 +7,11 @@ metadata:
     avp.kubernetes.io/path: "secret/data/infra/vault/prod"
 spec:
   vault:
-    server: <vault_url>  # Update with your Vault URL
-    path: <pki_sign_int_path>          # Update with your PKI path
+    server: <vault_url> 
+    path: <pki_sign_int_path>
     auth:
       kubernetes:
         mountPath: /v1/auth/kubernetes
-        role: cert-manager-pki  # Your existing Vault role
+        role: cert-manager-pki 
         serviceAccountRef:
           name: cert-manager
