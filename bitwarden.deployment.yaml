@@ -79,8 +79,6 @@ spec:
           value: <path:secret/data/apps/bitwarden/prod#SSO_ALLOW_UNKNOWN_EMAIL_VERIFICATION>
         - name: SSO_AUTH_ONLY_NOT_SESSION
           value: <path:secret/data/apps/bitwarden/prod#SSO_AUTH_ONLY_NOT_SESSION>
-        - name: SSO_ENABLED
-          value: <path:secret/data/apps/bitwarden/prod# SSO_ENABLED>
         - name: SSO_MASTER_PASSWORD_POLICY
           value: <path:secret/data/apps/bitwarden/prod#SSO_MASTER_PASSWORD_POLICY>
         - name: SSO_ONLY
