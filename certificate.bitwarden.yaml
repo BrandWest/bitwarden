@@ -29,7 +29,7 @@ spec:
   issuerRef:
     name: vault-issuer
     kind: Issuer
-  commonName: <path:secret/data/infra/network/prod#wildcard_domain_styx>
+  commonName: <path:secrets/data/infra/network/prod#wildcard_domain_styx>
   dnsNames:
   - "*.styx.myth"
   - "styx.myth"

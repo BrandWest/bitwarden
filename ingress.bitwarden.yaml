@@ -26,10 +26,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - <path:secret/data/apps/bitwarden/prod#DOMAIN>
+    - <path:secrets/data/apps/bitwarden/prod#DOMAIN>
     secretName: diagon-ally-tls
   rules:
-  - host: <path:secret/data/apps/bitwarden/prod#DOMAIN>
+  - host: <path:secrets/data/apps/bitwarden/prod#DOMAIN>
     http:
       paths:
       - path: /
